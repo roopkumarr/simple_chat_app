@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -11,6 +12,7 @@
     "ejs": "~2.5.7",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
+    "mongoose": "^5.8.3",
     "morgan": "~1.9.0",
     "nodemon": "^2.0.2"
   },
@@ -20,6 +22,7 @@
     "chat",
     "mongoose",
     "express",
+    "socket.io",
     "freecodecamp"
   ],
   "author": "Roop Kumar R",

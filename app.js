@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,6 +19,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+mongoose.connect("mongodb://localhost/chat_app", { useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => {
+    console.log('Connected to the mongoDB at mongodb://localhost/chat_app...');
+  })
+  .catch(err => {
+    console.log('falied to connect to MongoDB...', err);
+    process.exit();
+  });
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
