@@ -1,0 +1,27 @@
+{
+  "name": "simple-chat-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "nodemon": "^2.0.2"
+  },
+  "description": "This app is buit using reference of link:- https://www.freecodecamp.org/news/simple-chat-application-in-node-js-using-express-mongoose-and-socket-io-ee62d94f5804/",
+  "main": "app.js",
+  "keywords": [
+    "chat",
+    "mongoose",
+    "express",
+    "freecodecamp"
+  ],
+  "author": "Roop Kumar R",
+  "license": "ISC"
+}
