@@ -6,7 +6,9 @@ const messageSchema = new mongoose.Schema({
     },
     message: {
         type: String,
-    }
+    },
+}, {
+    timestamps: true,
 });
 
-module.exports.Message = mongoose.model("Agent", messageSchema);
+module.exports = mongoose.model('Message', messageSchema);

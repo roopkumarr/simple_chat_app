@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var messagesRouter = require('./routes/messaging');
 
 var app = express();
 
@@ -22,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect("mongodb://localhost/chat_app", { useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => {
-    console.log('Connected to the mongoDB at mongodb://localhost/chat_app...');
+    console.log('Connected to the mongoDB at mongodb://localhost/chat_app (DataBase)');
   })
   .catch(err => {
     console.log('falied to connect to MongoDB...', err);
@@ -31,6 +32,7 @@ mongoose.connect("mongodb://localhost/chat_app", { useNewUrlParser: true, useUni
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/message_api', messagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
