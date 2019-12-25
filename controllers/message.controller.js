@@ -20,6 +20,7 @@ router.post('/messages', (req, res) => {
         message: req.body.message
     }).then(message => {
         console.log("Message", message);
+        res.io.emit('message', req.body);
         RESPONDER.response(res, 200, JSON.stringify({'message':'successfully sent'}));
     }).catch(err => {
         console.log("Error ==>",err);

@@ -12,7 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-
+        <!-- Important sockets for push notification -->
+    <script src="/socket.io/socket.io.js"></script> 
 </head>
 
 <body>
@@ -32,20 +33,25 @@
         </div>
     </div>
     <script>
+        var socket = io(); //important
         $(() => {
             $("#send").click(() => {
                 sendMessage({ name: $("#name").val(), message: $("#message").val() });
             })
             getMessages()
         })
+        socket.on('message', addMessages) //important
+
         function addMessages(message) {
             $("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
         }
+
         function getMessages() {
             $.get('http://localhost:3000/message_api/messages', (data) => {
                 data.forEach(addMessages);
             })
         }
+
         function sendMessage(message) {
             $.post('http://localhost:3000/message_api/messages', message)
         }

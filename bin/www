@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+// var app = require('../app'); // default app import for package/ function use
+var app = require('../app').app; //because we are exporting both app and server functions in app.js file
 var debug = require('debug')('simple-chat-app:server');
 var http = require('http');
 
@@ -19,8 +20,8 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
-
+// var server = http.createServer(app); // this is the default server creation method
+var server = require('../app').server; // server creation
 /**
  * Listen on provided port, on all network interfaces.
  */
